@@ -1,0 +1,18 @@
+services:
+  yolo:
+    build:
+      context: .
+      platforms:
+        - linux/amd64 # x86-64 기반 시스템
+        - linux/arm64 # Apple Silicon (M1, M2)
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./runs:/app/runs
+      - poetry-cache:/root/.cache/pypoetry
+    environment:
+      - PYTHONUNBUFFERED=1 # Python 출력 버퍼링 비활성화
+      - PYTHONDONTWRITEBYTECODE=1 # .pyc 파일 생성 방지
+
+volumes:
+  poetry-cache: # Poetry 캐시 볼륨
