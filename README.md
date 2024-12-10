@@ -1,24 +1,43 @@
-# Docker 겉핥기
+# Docker
 
-- 컨테이너(가상화된 환경)를 사용하여 애플리케이션을 쉽게 실행하고 배포하는데 사용되는 오픈소스 플랫폼
-- 개발부터 배포까지 동일한 환경을 보장해주는 것이 가장 큰 장점
-- "한 번 만들면 어디서든 실행된다" (Build once, run anywhere)
+도커에 대한 내용을 정리한 문서입니다.
+이 내용이 없어서 아쉬운 부분이 있을 수 있습니다. 
+혹시 이런 내용이 필요하다면 이슈나 PR 또는 메일 등으로 알려주세요.
 
-아래는 제가 사용해본 내용을 정리한 것입니다.
-실제 이 환경의 사용 예시는 [START.md](./START.md)에 있습니다.
+실제 이 환경의 사용 예시는 [Start.md](./Start.md)에 있습니다.
 
-## 도커 환경 구축
+도커 설치법은 [Docker Desktop](https://www.docker.com/products/docker-desktop)을 다운로드 받아 설치하면 됩니다
+윈도우는 WSL2가 필요합니다.
 
-## 1. 설치
-- [도커 데스크톱](https://www.docker.com/products/docker-desktop/) 다운로드 및 설치
-- 설치 확인:
-```bash
-# 버전 확인
-docker -v
+설치 후 `docker -v`로 버전을 확인하고 `docker run hello-world`로 설치 확인을 합니다.
 
-# 설치 테스트
-docker run hello-world
-```
+## 목차
+
+- [시작하기](#시작하기)
+- [주요 문서](#주요-문서)
+- [개인 설정](#개인-설정)
+- [참고 자료](#참고-자료)
+
+## 시작하기
+
+- [Docker 이해하기](./documents/Docker.md)
+
+## 주요 문서
+
+- [명령어 모음](./documents/Command.md)
+
+## 개인 설정
+
+- [개인 환경 설정](./Docker-examples/README.md)
+
+## 참고 자료
+
+- [도커 공식 문서](https://docs.docker.com/)
+- [도커 허브](https://hub.docker.com/)
+
+---
+
+이 부분은 아직 삭제하지 않은 내용으로 추후 내용 정리 후 삭제할 예정입니다.
 
 ## 2. 이미지 관리
 - 이미지란 컨테이너를 생성하기 위한 템플릿
@@ -181,3 +200,5 @@ docker-compose ps  # 상태 확인
 ## 참고
 간단한 사용법만 소개했으며, 추가 명령어(조금씩 추가 예정)은 [명령어](./command.md)에서 확인할 수 있습니다.
 더 자세한 내용은 [도커 공식 문서](https://docs.docker.com/)를 참고하세요.
+
+[🔝 맨 위로](#docker)
