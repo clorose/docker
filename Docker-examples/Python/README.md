@@ -62,6 +62,10 @@ docker ps
 docker exec -it [container_name] zsh
 ```
 
+참고로 docker-compose.yml 에 정의된 컨테이너 이름은 `python-dev` 입니다.
+수정을 원할 경우 `docker-compose.yml` 파일의 `container_name`을 수정하세요.
+만약 삭제하면 자동으로 생성됩니다.
+
 5. 컨테이너 종료:
 ```bash
 docker compose down
@@ -82,3 +86,4 @@ docker compose restart dev
 - requirements.txt에 필요한 패키지를 추가하면 이미지 재빌드가 필요합니다.
 - Dockerfile이나 requirements.txt 변경 시 `docker compose up --build dev`로 재빌드가 필요합니다.
 - docker compose up --build는 `docker-compose.yml` 의 모든 서비스를 빌드하므로, 특정 서비스만 빌드하려면 서비스 이름을 지정해야 합니다. (예: dev)
+- uv 로 설치한 패키지를 보려면 `uv pip list` 명령어를 사용하세요.(저는 몰라서 꽤 헤맸습니다.)

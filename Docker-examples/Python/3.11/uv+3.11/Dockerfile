@@ -8,11 +8,18 @@ RUN apt-get update && apt-get install -y \
   tzdata \ 
   nano \
   zsh \
+  htop \
+  tree \
   && rm -rf /var/lib/apt/lists/* \
   && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended \
   && git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k \
   && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
   && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Copy zsh configuration files
+COPY ./zsh/zshrc /root/.zshrc
+COPY ./zsh/p10k.zsh /root/.p10k.zsh
+COPY ./zsh/aliases.zsh /root/.aliases.zsh
 
 # Install uv for faster package installation
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
@@ -21,10 +28,6 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
   uv venv /app/.venv && \
   . /app/.venv/bin/activate && \
   uv pip install --upgrade pip
-
-# Copy zsh configuration
-COPY ./zsh/zshrc /root/.zshrc
-COPY ./zsh/p10k.zsh /root/.p10k.zsh
 
 # Set working directory and create directories
 WORKDIR /app
